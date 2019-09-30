@@ -47,16 +47,19 @@ function getCharacters() {
                     array = result.data;
                     str = '<div>';
                     array.forEach(function (element) {
-                        str += '<ul>';
-                        str += '<li>' + element.name + '</li>';
-                        str += '<li>' + element.shortDescription + '</li>';
-                        str += '</ul>';
+                        str += '<div>';
                         str += '<img src="data:image/jpeg;base64,' + element.image + '"/>';
-                        str += '<button>View</button>';
-                        str += '<button>Edit</button>';
-                        str += '<button>Delete</button>';
+                        str += '<h1>' + element.name + '</h1>';
+                        str += '<p>' + element.shortDescription + '</p>';
+                        str += '<div class="buttons">';
+                        str += '<button class="viewHero">View</button>';
+                        str += '<button class="editHero">Edit</button>';
+                        str += '<button class="deleteHero">Delete</button>';
+                        str += '</div>';
+                        str += '</div>';
                     });
                     str += '</div>';
+                    str += '<button id="addHero">Add</button>';
                     document.getElementById("list").innerHTML = str;
                     return [2 /*return*/];
             }
