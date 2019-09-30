@@ -55,7 +55,17 @@ button {
     width: 100px
 }
 
+/*ajout Isma*/
+#heroes {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
 #addHero {
+
     width: 250px;
     margin-top: 25px;
     margin-bottom: 25px;
