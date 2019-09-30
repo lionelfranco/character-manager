@@ -1996,8 +1996,11 @@ function getCharacters() {
             str += '<ul>';
             str += '<li>' + element.name + '</li>';
             str += '<li>' + element.shortDescription + '</li>';
-            str += '<li>' + element.description + '</li>';
+            str += '<li>' + element.image + '</li>';
             str += '</ul>';
+            str += '<button>View</button>';
+            str += '<button>Edit</button>';
+            str += '<button>Delete</button>';
           });
           str += '</div>';
           document.getElementById("list").innerHTML = str;
