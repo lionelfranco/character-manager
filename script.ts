@@ -12,8 +12,8 @@ async function getCharacters() {
         str += '<ul>'
         str += '<li>'+ element.name + '</li>';
         str += '<li>'+ element.shortDescription + '</li>';
-        str += '<li>'+ element.image + '</li>';
         str += '</ul>'
+        str += '<img src="data:image/jpeg;base64,'+ element.image + '"/>'
         str += '<button>View</button>'
         str += '<button>Edit</button>'
         str += '<button>Delete</button>'
