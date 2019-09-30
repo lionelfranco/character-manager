@@ -4,6 +4,7 @@ const api = 'https://character-database.becode.xyz'
 async function getCharacters() {
     let result = await axios.get(`${api}/characters`)
     const array = result.data
+    
     var str = '<div>'
 
     array.forEach(function(element) {
