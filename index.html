@@ -30,15 +30,26 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">AJOUTER VOTRE HERO ! </h4>
+                        <h4 class="modal-title">AJOUTEZ VOTRE HERO ! </h4>
                     </div>
                     <div class="modal-body">
-                        <input id="addName" placeholder="Ajouter un nom"> </input>
-                        <input id="addShortDescription" placeholder="Ajouter une description"></input>
+                        <ul>
+                            <li><input id="addName" placeholder="Ajoutez un nom"> </input></li>
+                            <li><input id="addShortDescription" placeholder="Ajoutez une COURTE description"></input>
+                            </li>
+                            <li><input id="addDescription" placeholder="Ajoutez une description complète"></input></li>
+                            <li>
+                                <h4>Ajoutez une image ! </h4>
 
+                                <input type="file" placeholder="Ajoutez une image" id="addImage"
+                                    accept="image/jpeg"></input>
+                            </li>
+
+                        </ul>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Envoyer</button>
+                        <button id="sendInfo" type="button" class="btn btn-default"
+                            data-dismiss="modal">Envoyer</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
                     </div>
                 </div>

@@ -32,8 +32,8 @@ getCharacters();
 
 
 
-window.onload = function () {
+/* window.onload = function () {
     document.getElementById("addHero").addEventListener("click", () => {
         console.log("yo")
     })
-}
+} */
