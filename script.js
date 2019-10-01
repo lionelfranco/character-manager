@@ -1,5 +1,7 @@
 //const axios = require("axios");
 
+
+
 window.onload = function () {
 
     const api = 'https://character-database.becode.xyz'
@@ -19,7 +21,7 @@ window.onload = function () {
             str += '<h1>' + element.name + '</h1>';
             str += '<p>' + element.shortDescription + '</p>';
             str += `<div class="buttons"  name="${element.id}">`
-            str += `<button class="viewHero">View</button">`
+            str += `<button type="button" class="viewHero"  data-toggle="modal" data-target="#view" >View</button">`
             str += `<button class="editHero">Edit</button">`
             str += `<button class="deleteHero">Delete</button">`
             str += '</div>'
@@ -32,6 +34,7 @@ window.onload = function () {
         str += '</div>';
         //str += '<button id="addHero">Add</button>'
         document.getElementById("list").innerHTML = str;
+
         document.querySelectorAll("#list .viewHero").forEach((element) => {
 
             element.addEventListener("click", async (e) => {
@@ -39,11 +42,42 @@ window.onload = function () {
 
                 let idHero = await axios.get(`https://character-database.becode.xyz/characters/${id}`)
 
-                console.log(await idHero.data)
+                let arrayOfHero = await idHero.data;
+
+                console.log(arrayOfHero)
+
+                let template = document.getElementById("tpl-hero")
+                let infos = document.importNode(template, true).content;
+
+
+                console.log(infos.querySelector("em"));
+
+
+
+                infos.querySelector("h4").innerHTML = arrayOfHero.name //balise name
+                infos.querySelector("em").innerHTML = arrayOfHero.description // balise alterego
+
+                infos.querySelector("p").innerHTML = arrayOfHero.shortDescription // alise power
+
+                infos.querySelector("span").innerHTML = '<img src="data:image/jpeg;base64,' + arrayOfHero.image + '"/>'
+
+
+
+                //lui donne un enfant qui  importe infos , nbre fois de boucle,
+                //et true = si il prend les infos dedans ou pas
+                document.getElementById("target").appendChild(infos)
+
+
+
+
+
+
+
 
 
 
             })
+
         })
 
 
@@ -51,6 +85,8 @@ window.onload = function () {
         //add even listner pour chaque click
 
     }
+
+
 
     getCharacters();
 
