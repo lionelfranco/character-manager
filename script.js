@@ -38,6 +38,8 @@ window.onload = function () {
         document.querySelectorAll("#list .viewHero").forEach((element) => {
 
             element.addEventListener("click", async (e) => {
+
+                document.getElementById("target").innerHTML = "";
                 let id = e.target.parentElement.getAttribute("name")
 
                 let idHero = await axios.get(`https://character-database.becode.xyz/characters/${id}`)
@@ -68,14 +70,6 @@ window.onload = function () {
                 document.getElementById("target").appendChild(infos)
 
 
-
-
-
-
-
-
-
-
             })
 
         })
@@ -84,11 +78,12 @@ window.onload = function () {
 
         //add even listner pour chaque click
 
+
     }
 
 
-
     getCharacters();
+
 
 
 }

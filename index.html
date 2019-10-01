@@ -22,7 +22,7 @@
     <div id="heroes">
         <h1>Heroes list</h1>
         <template id="tpl-hero">
-            <div class="hero">
+            <div id="hero">
                 <h4 class="title">
                     <strong class="name"></strong>
                 </h4>
@@ -38,8 +38,6 @@
         <button id="addHero" type="button" data-toggle="modal" data-target="#addModal">ADD
         </button>
 
-        <button class="viewHero" type="button" data-toggle="modal" data-target="#view">view
-        </button>
 
 
         <div class="modal fade" id="view" role="dialog">
@@ -55,8 +53,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Envoyer</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+
+                        <button id="retour" type="button" class="btn btn-default" data-dismiss="modal">Retour</button>
                     </div>
                 </div>
             </div>
