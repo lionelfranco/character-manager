@@ -46,20 +46,18 @@ window.onload = function () {
 
                 let arrayOfHero = await idHero.data;
 
-                console.log(arrayOfHero)
 
                 let template = document.getElementById("tpl-hero")
                 let infos = document.importNode(template, true).content;
 
 
-                console.log(infos.querySelector("em"));
 
 
 
-                infos.querySelector("h4").innerHTML = arrayOfHero.name //balise name
-                infos.querySelector("em").innerHTML = arrayOfHero.description // balise alterego
+                infos.querySelector("h4").innerHTML = arrayOfHero.name
+                infos.querySelector("em").innerHTML = arrayOfHero.description
 
-                infos.querySelector("p").innerHTML = arrayOfHero.shortDescription // alise power
+                infos.querySelector("p").innerHTML = arrayOfHero.shortDescription
 
                 infos.querySelector("span").innerHTML = '<img src="data:image/jpeg;base64,' + arrayOfHero.image + '"/>'
 
