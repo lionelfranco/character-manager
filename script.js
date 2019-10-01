@@ -105,7 +105,12 @@ window.onload = function () {
 
     }
 
+    /*     if (typeof document.querySelectorAll("img").getAttribute("src") == "undefined") {
+            document.querySelectorAll("img").getAttribute("src") = "https: //source.unsplash.com/random"
 
+
+
+        } */
     getCharacters();
 
 
