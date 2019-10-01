@@ -34,7 +34,7 @@ window.onload = function () {
         str += '</div>';
         //str += '<button id="addHero">Add</button>'
         document.getElementById("list").innerHTML = str;
-
+        //viewHero renvoi un tableau
         document.querySelectorAll("#list .viewHero").forEach((element) => {
 
             element.addEventListener("click", async (e) => {
@@ -74,8 +74,34 @@ window.onload = function () {
 
 
 
-        //add even listner pour chaque click
+        document.querySelectorAll("#list .deleteHero").forEach((element) => {
 
+            element.addEventListener("click", async (e) => {
+
+                let id = e.target.parentElement.getAttribute("name")
+
+                let idHero = await axios.get(`https://character-database.becode.xyz/characters/${id}`)
+
+
+
+                let arrayOfHero = await idHero.data;
+
+
+                if (confirm('Voulez vous supprimer?')) {
+                    alert('Vous avez supprimez le héro ' + arrayOfHero.name);
+
+                    await axios.delete(`https://character-database.becode.xyz/characters/${id}`)
+
+                } else {
+                    alert("Vous avez sauveer votre hero ");
+                }
+
+
+
+
+            })
+
+        })
 
     }
 
