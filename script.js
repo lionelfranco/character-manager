@@ -9,8 +9,8 @@
 
             let img = reader.result
             img = img.split(",")[1]
-            document.getElementById("editImage").value = array
-            document.getElementById("addImage").value = array
+            document.getElementById("editImage").value = img
+            document.getElementById("addImage").value = img
 
 
 
@@ -164,15 +164,13 @@
             })
 
 
-
+            //add personnage
             document.getElementById("sendInfo").addEventListener("click", async () => {
                 let inputName = document.getElementById("addName").value
                 let inputShortDescription = document.getElementById("addShortDescription").value
                 let inputDescription = document.getElementById("addDescription").value
                 let inputImage = document.getElementById("addImage").value
-                //let dataURL = document.getElementById("addImage").toDataURL('image/jpeg', 0.5);
 
-                inputImage = array
                 await axios.post(`${api}/characters/`, {
 
                     name: inputName,
