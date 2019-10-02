@@ -1,6 +1,6 @@
 # character-manager
 
-If you click (this link)[https://lionelfranco.github.io/character-manager/], you'll be redirected to our Hero List.
+If you click [this link](https://lionelfranco.github.io/character-manager/), you'll be redirected to our Hero List.
 
 Feel free to add a hero, edit or delete an existing hero of the list.
 
