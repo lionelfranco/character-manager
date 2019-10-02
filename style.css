@@ -83,3 +83,8 @@ button {
 .deleteHero {
     background-color: red;
 }
+
+#addImage,
+#editImage {
+    display: none;
+}

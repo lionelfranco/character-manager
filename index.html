@@ -72,13 +72,13 @@
                             <li><input id="addName" placeholder="Ajoutez un nom"> </input></li>
                             <li><input id="addShortDescription" placeholder="Ajoutez une COURTE description"></input>
                             </li>
-                            <li><input id="addDescription" pla ceholder="Ajoutez une description complète"></input></li>
+                            <li><input id="addDescription" placeholder="Ajoutez une description complète"></input></li>
                             <li>
                                 <h4>Ajoutez une image ! </h4>
-                                <a href=https://onlinejpgtools.com/convert-jpg-to-base64 target="_blank"> Cliquez ici
-                                    pour récuperer
-                                    votre image en BASE 64 </a> <br /> <input id="addImage"
-                                    placeholder="Ajoutez une image complète"></input>
+                                <input id="addImage" placeholder="Ajoutez une image complète"></input>
+
+                                <input type="file" onchange="encodeImageFileAsURL(this)" />
+
                                 <!--  <input type="file" placeholder="Ajoutez une image" id="addImage"
                                     accept="image/jpeg"></input> -->
                             </li>
@@ -111,9 +111,7 @@
                             </li>
                             <li>
                                 <h4>Ajoutez une image ! </h4>
-                                <a href=https://onlinejpgtools.com/convert-jpg-to-base64 target="_blank"> Cliquez ici
-                                    pour récuperer
-                                    votre image en BASE 64 </a> <br /> <input id="editImage"
+                                <input type="file" onchange="encodeImageFileAsURL(this)" /> <input id="editImage"
                                     placeholder="Ajoutez une image complète"></input>
                                 <!--  <input type="file" placeholder="Ajoutez une image" id="addImage"
                                     accept="image/jpeg"></input> -->
