@@ -12,9 +12,9 @@ window.onload = function () {
         // data indispensable pour afficher les données du tableau
 
         var str = '<div>'
-
+        //Creation de div pour chaque HEROS
         array.forEach(function (element) {
-            //str += '<div id="'+element.id+'">'
+
             str += `<div>`
 
             str += '<img src="data:image/jpeg;base64,' + element.image + '"/>'
@@ -32,9 +32,13 @@ window.onload = function () {
         });
 
         str += '</div>';
-        //str += '<button id="addHero">Add</button>'
+
         document.getElementById("list").innerHTML = str;
+
+
         //viewHero renvoi un tableau
+
+        // pour chaque bouton ViewHEro on a accès a la modal de ce hero
         document.querySelectorAll("#list .viewHero").forEach((element) => {
 
             element.addEventListener("click", async (e) => {
@@ -50,18 +54,12 @@ window.onload = function () {
                 let template = document.getElementById("tpl-hero")
                 let infos = document.importNode(template, true).content;
 
-
-
-
-
                 infos.querySelector("h4").innerHTML = arrayOfHero.name
                 infos.querySelector("em").innerHTML = arrayOfHero.description
 
                 infos.querySelector("p").innerHTML = arrayOfHero.shortDescription
 
                 infos.querySelector("span").innerHTML = '<img src="data:image/jpeg;base64,' + arrayOfHero.image + '"/>'
-
-
 
                 //lui donne un enfant qui  importe infos , nbre fois de boucle,
                 //et true = si il prend les infos dedans ou pas
@@ -73,7 +71,7 @@ window.onload = function () {
         })
 
 
-
+        // Bouton delete hero
         document.querySelectorAll("#list .deleteHero").forEach((element) => {
 
             element.addEventListener("click", async (e) => {
@@ -96,23 +94,44 @@ window.onload = function () {
                     alert("Vous avez sauveer votre hero ");
                 }
 
-
-
-
             })
 
         })
 
+
+
+
+
+        document.getElementById("sendInfo").addEventListener("click", async () => {
+            let inputName = document.getElementById("addName").value
+            let inputShortDescription = document.getElementById("addShortDescription").value
+            let inputDescription = document.getElementById("addDescription").value
+            let inputImage = document.getElementById("addImage").value
+            //let dataURL = document.getElementById("addImage").toDataURL('image/jpeg', 0.5);
+
+
+            await axios.post(`${api}/characters/`, {
+
+                name: inputName,
+                shortDescription: inputShortDescription,
+                description: inputDescription,
+                image: inputImage
+            })
+        })
     }
 
-    /*     if (typeof document.querySelectorAll("img").getAttribute("src") == "undefined") {
-            document.querySelectorAll("img").getAttribute("src") = "https: //source.unsplash.com/random"
 
 
 
-        } */
+
+
     getCharacters();
 
+    /*     if (typeof document.querySelectorAll("img").getAttribute("src") == "undefined") {
+             document.querySelectorAll("img").getAttribute("src") = "https: //source.unsplash.com/random"
 
+
+
+         } */
 
 }
