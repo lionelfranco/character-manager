@@ -88,3 +88,7 @@ button {
 #editImage {
     display: none;
 }
+
+ul {
+    list-style-type: none;
+}

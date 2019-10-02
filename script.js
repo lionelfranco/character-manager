@@ -6,10 +6,9 @@
         var file = element.files[0];
         var reader = new FileReader();
         reader.onloadend = function () {
-            console.log('RESULT', reader.result)
 
-            let array = reader.result
-            array = array.split(",")[1]
+            let img = reader.result
+            img = img.split(",")[1]
             document.getElementById("editImage").value = array
             document.getElementById("addImage").value = array
 
@@ -35,8 +34,14 @@
             array.forEach(function (element) {
 
                 str += `<div>`
+                //si pas d'image renvoyer une random
+                if (typeof element.image === 'undefined') {
+                    str += '<img src="https://source.unsplash.com/random"/>'
 
-                str += '<img src="data:image/jpeg;base64,' + element.image + '"/>'
+                } else {
+                    str += '<img src="data:image/jpeg;base64,' + element.image + '"/>'
+                }
+                // str += '<img src="data:image/jpeg;base64,' + element.image + '"/>'
                 str += '<h1>' + element.name + '</h1>';
                 str += '<p>' + element.shortDescription + '</p>';
                 str += `<div class="buttons"  name="${element.id}">`
@@ -129,9 +134,6 @@
 
 
                     let idHero = await axios.get(`https://character-database.becode.xyz/characters/${id}`)
-
-
-
                     let arrayOfHero = await idHero.data;
 
                     let editName = document.getElementById("editName")
