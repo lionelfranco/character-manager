@@ -148,7 +148,6 @@
 
                     document.getElementById("sendEdit").addEventListener("click", async () => {
 
-
                         await axios.put(`https://character-database.becode.xyz/characters/${id}`, {
 
                             name: editName.value,
@@ -156,6 +155,8 @@
                             description: editDescription.value,
                             image: editImage.value
                         })
+
+
 
                         window.location.href = window.location.href
                     })
@@ -170,15 +171,17 @@
                 let inputShortDescription = document.getElementById("addShortDescription").value
                 let inputDescription = document.getElementById("addDescription").value
                 let inputImage = document.getElementById("addImage").value
+                if (inputName.trim() == "" || inputShortDescription.trim() == "" || inputDescription.trim() == "" || inputImage.trim() == "") {
+                    alert("Completez le formulaire ! Il manque des infos ! ");
+                } else {
+                    await axios.post(`${api}/characters/`, {
 
-                await axios.post(`${api}/characters/`, {
-
-                    name: inputName,
-                    shortDescription: inputShortDescription,
-                    description: inputDescription,
-                    image: inputImage
-                })
-
+                        name: inputName,
+                        shortDescription: inputShortDescription,
+                        description: inputDescription,
+                        image: inputImage
+                    })
+                }
                 window.location.href = window.location.href
             })
         }
