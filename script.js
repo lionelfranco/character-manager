@@ -107,11 +107,23 @@ window.onload = function () {
 
                 let id = e.target.parentElement.getAttribute("name")
 
+
+
+                let idHero = await axios.get(`https://character-database.becode.xyz/characters/${id}`)
+
+
+
+                let arrayOfHero = await idHero.data;
+
                 let editName = document.getElementById("editName")
                 let editShortDescription = document.getElementById("editShortDescription")
                 let editDescription = document.getElementById("editDescription")
                 let editImage = document.getElementById("editImage")
 
+                editName.value = arrayOfHero.name
+                editShortDescription.value = arrayOfHero.shortDescription
+                editDescription.value = arrayOfHero.description
+                editImage.value = arrayOfHero.image
 
                 document.getElementById("sendEdit").addEventListener("click", async () => {
 
