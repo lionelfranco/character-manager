@@ -22,7 +22,7 @@ window.onload = function () {
             str += '<p>' + element.shortDescription + '</p>';
             str += `<div class="buttons"  name="${element.id}">`
             str += `<button type="button" class="viewHero"  data-toggle="modal" data-target="#view" >View</button">`
-            str += `<button class="editHero">Edit</button">`
+            str += `<button  type="button" data-toggle="modal" data-target="#edit"class="editHero">Edit</button">`
             str += `<button class="deleteHero">Delete</button">`
             str += '</div>'
             str += '</div>'
@@ -99,6 +99,34 @@ window.onload = function () {
         })
 
 
+        //EDITION
+
+        document.querySelectorAll("#list .editHero").forEach((element) => {
+
+            element.addEventListener("click", async (e) => {
+
+                let id = e.target.parentElement.getAttribute("name")
+
+                let editName = document.getElementById("editName")
+                let editShortDescription = document.getElementById("editShortDescription")
+                let editDescription = document.getElementById("editDescription")
+                let editImage = document.getElementById("editImage")
+
+
+                document.getElementById("sendEdit").addEventListener("click", async () => {
+
+
+                    await axios.put(`https://character-database.becode.xyz/characters/${id}`, {
+
+                        name: editName.value,
+                        shortDescription: editShortDescription.value,
+                        description: editDescription.value,
+                        image: editImage.value
+                    })
+                })
+
+            })
+        })
 
 
 
