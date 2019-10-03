@@ -94,6 +94,7 @@
             await axios.delete(
               `https://character-database.becode.xyz/characters/${id}`
             );
+            window.location.href = window.location.href;
           } else {
             alert("Vous avez sauveer votre hero ");
           }
